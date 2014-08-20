@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = CsvToSitemap::VERSION
   spec.authors       = ["Chris Taggart"]
   spec.email         = ["countculture@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Converts CSV file of paths to XML sitemap collection}
+  spec.summary       = %q{Converts CSV file of paths to XML sitemap collection}
   spec.homepage      = ""
   spec.license       = "MIT"
 
