@@ -1,6 +1,6 @@
 # CsvToSitemap
 
-TODO: Write a gem description
+Basic library for converting CSV file of paths to XML sitemap collection (i.e. with sitempa index)
 
 ## Installation
 
@@ -17,8 +17,12 @@ Or install it yourself as:
     $ gem install csv_to_sitemap
 
 ## Usage
+require 'csv_to_sitemap'
 
-TODO: Write usage instructions here
+CsvToSitemap.generate_from_csv_file('/tmp/dump.csv',:domain=>'example.com', :export_dir => '/path/to/sitemap)
+
+## Usage
+Write some specs?
 
 ## Contributing
 
