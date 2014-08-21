@@ -47,12 +47,13 @@ HTML
 
   def convert_row(csv_row)
     csv_hash = csv_row.to_hash
-    {:lastmod => csv_hash['updated_at'], :loc => "http://#{@domain}/#{csv_hash['path']}"}
+    {:lastmod => csv_hash['updated_at'], :loc => "#{@protocol}://#{@domain}/#{csv_hash['path']}"}
   end
 
   def generate_from_csv_file(csv_file, options={})
     @domain = options[:domain]
     @export_dir = options[:export_dir]||'/tmp'
+    @protocol = options[:protocol]||'http'
     @file_counter = row_counter = file_byte_counter = 0
     # debugger
     @sitemap_index_file = File.new(File.join(@export_dir, 'sitemap.xml'),'w')
