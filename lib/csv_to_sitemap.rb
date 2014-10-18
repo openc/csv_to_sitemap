@@ -40,9 +40,9 @@ HTML
         # close existing_file (if it exists)
         @current_sitemap_file.close
       end
+      @file_counter += 1
       # ...write to sitemap_index_file
       @sitemap_index_file.puts sitemap_index_entry(@file_counter)
-      @file_counter += 1
       # ...and open a new one
       @current_sitemap_file = File.new(File.join(@export_dir, "sitemap#{@file_counter}.xml"),'w')
       @current_sitemap_file.puts XML_WRAPPER_START
