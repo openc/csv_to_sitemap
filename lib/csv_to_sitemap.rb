@@ -59,7 +59,7 @@ HTML
     @domain = options[:domain]
     @export_dir = options[:export_dir]||'/tmp'
     @protocol = options[:protocol]||'http'
-    headers = option[:headers]||true
+    headers = options[:headers]||true
     @file_counter = row_counter = file_byte_counter = 0
     @sitemap_index_file = File.new(File.join(@export_dir, 'sitemap.xml'),'w')
     @sitemap_index_file.puts XML_INDEX_WRAPPER_START
