@@ -59,10 +59,11 @@ HTML
     @domain = options[:domain]
     @export_dir = options[:export_dir]||'/tmp'
     @protocol = options[:protocol]||'http'
+    headers = option[:headers]||true
     @file_counter = row_counter = file_byte_counter = 0
     @sitemap_index_file = File.new(File.join(@export_dir, 'sitemap.xml'),'w')
     @sitemap_index_file.puts XML_INDEX_WRAPPER_START
-    CSV.foreach(csv_file, :headers => true) do |row|
+    CSV.foreach(csv_file, :headers => headers) do |row|
       add_to_sitemap_file(convert_row(row), row_counter)
       row_counter += 1
     end
