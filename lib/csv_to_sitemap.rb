@@ -30,7 +30,7 @@ HTML
 
   def add_to_sitemap_file(row_data, row_counter)
     # skip non-dates, and log fact
-    unless row_data&&row_data[:lastmod][/^\d\d\d\d-\d\d-\d\d/]
+    unless row_data&&row_data[:lastmod]&&row_data[:lastmod][/^\d\d\d\d-\d\d-\d\d/]
       puts "Bad row data: #{row_data}"
       return
     end
