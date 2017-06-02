@@ -35,11 +35,7 @@ HTML
       return
     end
     if row_counter%ENTRIES_PER_FILE == 0
-      if @current_sitemap_file
-        @current_sitemap_file.puts XML_WRAPPER_END
-        # close existing_file (if it exists)
-        @current_sitemap_file.close
-      end
+      close_current_sitemap_file if @current_sitemap_file
       @file_counter += 1
       # ...write to sitemap_index_file
       @sitemap_index_file.puts sitemap_index_entry(@file_counter)
@@ -67,7 +63,7 @@ HTML
       add_to_sitemap_file(convert_row(row), row_counter)
       row_counter += 1
     end
-    @current_sitemap_file.close
+    close_current_sitemap_file if @current_sitemap_file
     @sitemap_index_file.puts XML_INDEX_WRAPPER_END
     @sitemap_index_file.close
   end
@@ -91,5 +87,10 @@ HTML
       # builder.priority   format_float(self[:priority]) if self[:priority]
     end
     builder << '' # Force to string
+  end
+
+  def close_current_sitemap_file
+    @current_sitemap_file.puts XML_WRAPPER_END
+    @current_sitemap_file.close
   end
 end
